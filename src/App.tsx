@@ -10,7 +10,7 @@ import { Store } from './store';
 import GlobalStyles from './assets/styles/GlobalStyles';
 import theme from './assets/styles/theme';
 
-import { Home } from './pages';
+import { Home, ChatRoom } from './pages';
 
 const App: React.FC = () => {
     const { api, loading } = useAxios();
@@ -32,6 +32,7 @@ const App: React.FC = () => {
                             <GlobalStyles/>
                             <Switch>
                                 <Route path="/" exact render={props => <Home {...props} />}/>
+                                <Route path="/:roomId" exact render={props => <ChatRoom {...props} />}/>
                                 <Redirect to="/"/>
                             </Switch>
                         </ThemeProvider>

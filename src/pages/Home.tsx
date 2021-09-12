@@ -1,41 +1,30 @@
-import React from 'react';
-import { useRootState, useRootDispatch } from '../store';
-import { increment, decrement } from '../actions/countAction';
+import React, {useState} from 'react';
 
-import Layout from '../components/Layout';
-import Button from '../components/atoms/Button/Button';
+const Chat = () => {
 
-const Home: React.FC = () => {
-    const state = useRootState();
-    const dispatch = useRootDispatch();
+    const [roomName, setRoomName] = useState("");
 
-    const handleIncrement = e => {
-        e.preventDefault();
-        dispatch(increment());
-    }
+    const handleRoomNameChange = (e) => {
+        setRoomName(e.target.value);
+    };
 
-    const handleDecrement = e => {
-        e.preventDefault();
-        dispatch(decrement());
-    }
     return (
-        <Layout>
-            <p>
-                {state.count.number}
-            </p>
-            <Button
-                onClick={handleIncrement}
+        <div className="home-container">
+            <input
+                type="text"
+                placeholder="Room"
+                value={roomName}
+                onChange={handleRoomNameChange}
+                className="text-input-field"
+            />
+            <a
+                href={`/${roomName}`}
+                className="enter-room-button"
             >
-                +
-            </Button>
-
-            <Button
-                onClick={handleDecrement}
-            >
-                -
-            </Button>
-        </Layout>
-    );
+                Join room
+            </a>
+        </div>
+    )
 };
 
-export default Home;
+export default Chat;
