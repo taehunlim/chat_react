@@ -3,9 +3,9 @@ import styled from '@emotion/styled';
 
 import { useDarkMode } from './customHook/useDarkMode';
 import DarkModeToggle from './DarkModeToggle';
+import Header from "./organisms/Header";
 
-const Layout: React.FC  = ({ children }) => {
-    
+const Layout = ({ children }) => {
     const [darkMode, setDarkMode] = useDarkMode();
 
     return (
@@ -14,7 +14,9 @@ const Layout: React.FC  = ({ children }) => {
                 darkMode={darkMode}
                 setDarkMode={setDarkMode}
             />
-            
+
+            <Header/>
+
             <Container>
                 {children}
             </Container>
@@ -23,18 +25,25 @@ const Layout: React.FC  = ({ children }) => {
 };
 
 const Container = styled.div`
-    ${ props => props.theme.device.desktop } {
-        background-color: blue;
-    }
-    ${ props => props.theme.device.laptop } {
-        background-color: green;
-    }
-    ${ props => props.theme.device.tablet } {
-        background-color: yellow;
-    }
-    ${ props => props.theme.device.mobile } {
-        background-color: red;
-    }
+  width: 100%;
+  padding: 100px;
+  
+  ${props => props.theme.device.desktop} {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  ${props => props.theme.device.laptop} {
+    padding: 80px;
+  }
+
+  ${props => props.theme.device.tablet} {
+    padding: 40px;
+  }
+
+  ${props => props.theme.device.mobile} {
+    padding: 20px;
+  }
 `;
 
 export default Layout ;

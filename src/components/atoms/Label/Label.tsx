@@ -13,7 +13,7 @@ const Label: React.FC<React.LabelHTMLAttributes<HTMLLabelElement>> = (props) => 
 };
 
 const LABEL = styled.label`
-  font-size: 15px;
+  font-size: 20px;
   color: black;
   margin: 0 0 5px 5px;
 `;

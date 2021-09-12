@@ -1,7 +1,15 @@
 import React, {useState} from 'react';
+import { useHistory } from 'react-router-dom';
+import styled from "@emotion/styled";
 
-const Chat = () => {
+import Layout from "../components/Layout";
+import Card from "../components/organisms/Card";
+import Input from "../components/atoms/Input/Input";
+import Button from "../components/atoms/Button/Button";
+import Label from "../components/atoms/Label/Label";
 
+const Home = () => {
+    const history = useHistory();
     const [roomName, setRoomName] = useState("");
 
     const handleRoomNameChange = (e) => {
@@ -9,22 +17,50 @@ const Chat = () => {
     };
 
     return (
-        <div className="home-container">
-            <input
-                type="text"
-                placeholder="Room"
-                value={roomName}
-                onChange={handleRoomNameChange}
-                className="text-input-field"
-            />
-            <a
-                href={`/${roomName}`}
-                className="enter-room-button"
-            >
-                Join room
-            </a>
-        </div>
+        <Layout>
+            <Card>
+                <Card.Headher>
+                    Chat Room List
+                </Card.Headher>
+
+                <Card.Container>
+                    <Column>
+                        <Label
+                            style={{
+                                textAlign: "center",
+                                marginBottom: "20px"
+                            }}
+                        >
+                            Welcome
+                        </Label>
+                        <StyledInput
+                            type="text"
+                            placeholder="Room Name"
+                            value={roomName}
+                            onChange={handleRoomNameChange}
+                        />
+                        <Button
+                            onClick={() => history.push(`/${roomName}`)}
+                        >
+                            Join room
+                        </Button>
+                    </Column>
+                </Card.Container>
+            </Card>
+        </Layout>
     )
 };
 
-export default Chat;
+const StyledInput = styled(Input)`
+    margin-bottom: 30px;
+`;
+
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+`;
+
+export default Home;

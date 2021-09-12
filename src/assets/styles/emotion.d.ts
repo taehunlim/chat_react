@@ -17,13 +17,13 @@ declare module '@emotion/react' {
     },
 
     bgColor: {
-      light: string,
-      dark: string
+      lightMode: string,
+      darkMode: string
     },
   
     fontColor: {
-        light: string,
-        dark: string
+      lightMode: string,
+      darkMode: string
     };
   }
 }

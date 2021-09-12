@@ -6,7 +6,6 @@ const useChat = (roomId) => {
     const socketRef = useRef(null);
 
     useEffect(() => {
-
         socketRef.current = socketIoClient('http://localhost:5000', {
             query: { roomId },
         });
@@ -25,6 +24,7 @@ const useChat = (roomId) => {
     }, [roomId]);
 
     const sendMessage = (messageBody) => {
+        console.log(socketRef)
         socketRef.current.emit('newChatMessage', {
            body: messageBody,
            senderId: socketRef.current.id,

@@ -12,12 +12,12 @@ declare const theme: {
         mobile: string;
     };
     bgColor: {
-        light: string;
-        dark: string;
+        lightMode: string;
+        darkMode: string;
     };
     fontColor: {
-        light: string;
-        dark: string;
+        lightMode: string;
+        darkMode: string;
     };
 };
 export default theme;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Global, css } from '@emotion/react';
+import theme from "./theme";
 
 const styles = css`
   *,
@@ -11,17 +12,24 @@ const styles = css`
   html,
   body {
     height: 100%;
-  }
-
-  body {
     margin: 0;
     position: relative;
-    background-color: white;
+    background-color: ${theme.bgColor.lightMode};
     transition: background-color 0.3s ease;
+    a,
+    label {
+      text-decoration: none;
+      color: ${theme.fontColor.lightMode}
+    }
 
     &.dark-mode {
-      background-color: #232323;
-      color: #dfdfdf;
+      background-color: ${theme.bgColor.darkMode};
+      color: ${theme.fontColor.darkMode};
+      
+      a,
+      label {
+        color: ${theme.fontColor.darkMode};;
+      }
     }
   }
 
@@ -32,14 +40,13 @@ const styles = css`
   a,
   button {
     display: inline-block;
-
     cursor: pointer;
   }
 
   *:focus {
     outline: none;
   }
-
+  
   a:focus {
     outline: none;
   }
@@ -50,10 +57,30 @@ const styles = css`
 
     list-style: outside none none;
   }
+
+  input:focus::-webkit-input-placeholder,
+  textarea:focus::-webkit-input-placeholder {
+    color: transparent !important;
+  }
+
+  input:focus:-moz-placeholder,
+  textarea:focus:-moz-placeholder {
+    color: transparent !important;
+  } /* FF 4-18 */
+
+  input:focus::-moz-placeholder,
+  textarea:focus::-moz-placeholder {
+    color: transparent !important;
+  } /* FF 19+ */
+
+  input:focus:-ms-input-placeholder,
+  textarea:focus:-ms-input-placeholder {
+    color: transparent !important;
+  } /* IE 10+ */
+
 `;
 
 const GlobalStyles: React.FC = () => {
-
     return (
         <Global styles={styles}/>
     );
