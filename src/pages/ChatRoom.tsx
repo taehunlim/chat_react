@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useChat from "../components/customHook/useChat";
+import useChat from "../components/hooks/useChat";
 
 const ChatRoom = (props) => {
 

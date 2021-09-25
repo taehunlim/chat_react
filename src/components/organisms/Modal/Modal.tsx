@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/core';
 
-import { useScrollRock } from '../../customHook/useScrollRock';
+import { useScrollRock } from '../../hooks/useScrollRock';
 
 interface ModalProps {
     open: boolean;

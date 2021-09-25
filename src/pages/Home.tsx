@@ -3,9 +3,9 @@ import { useHistory } from 'react-router-dom';
 import styled from "@emotion/styled";
 
 import Layout from "../components/Layout";
-import Card from "../components/organisms/Card";
+import Card from "../components/molecules/Card";
 import Input from "../components/atoms/Input/Input";
-import Button from "../components/atoms/Button/Button";
+import Button from "../components/atoms/Button";
 import Label from "../components/atoms/Label/Label";
 
 const Home = () => {
@@ -40,6 +40,7 @@ const Home = () => {
                             onChange={handleRoomNameChange}
                         />
                         <Button
+                            type=""
                             onClick={() => history.push(`/${roomName}`)}
                         >
                             Join room

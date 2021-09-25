@@ -1,15 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-interface CheckBoxProps {
-    id?: string;
-    name?: string;
-    value?: any;
-    checked?: boolean;
-    defaultChecked?: boolean;
-    onClick?: () => void;
-}
-
 const CheckBox: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props) => {
 
     return (

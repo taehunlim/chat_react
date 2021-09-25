@@ -1,10 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-interface RadioButtonProps {
-    checked?: boolean;
-}
-
 const Radio: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props) => {
 
     return (

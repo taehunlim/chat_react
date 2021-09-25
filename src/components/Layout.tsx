@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import { useDarkMode } from './customHook/useDarkMode';
+import { useDarkMode } from './hooks/useDarkMode';
 import DarkModeToggle from './DarkModeToggle';
 import Header from "./organisms/Header";
 
