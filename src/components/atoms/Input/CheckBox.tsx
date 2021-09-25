@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const CheckBox: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props) => {
+const CheckBox = (props) => {
 
     return (
         <Box>

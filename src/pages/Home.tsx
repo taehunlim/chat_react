@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 
 import Layout from "../components/Layout";
 import Card from "../components/molecules/Card";
-import Input from "../components/atoms/Input/Input";
+import Input from "../components/atoms/Input";
 import Button from "../components/atoms/Button";
 import Label from "../components/atoms/Label/Label";
 
