@@ -25,5 +25,14 @@ declare module '@emotion/react' {
       lightMode: string,
       darkMode: string
     };
+    color: {
+      primary: string,
+      danger: string,
+      white: string,
+      black: string,
+      black_bold: string,
+      gray: string,
+      gray_two: string,
+    }
   }
 }

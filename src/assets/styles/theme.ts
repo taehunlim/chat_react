@@ -24,11 +24,22 @@ const fontColor = {
     darkMode: '#dfdfdf'
 };
 
+const color = {
+    primary: "#4e98ed",
+    danger: "#fb4d44",
+    white: "#ffffff",
+    black: "#434446",
+    black_bold: "#0f0f0f",
+    gray: "#9d9fa2",
+    gray_two: "#77797c",
+};
+
 const theme = {
     deviceSize,
     device,
     bgColor,
-    fontColor
+    fontColor,
+    color
 };
 
 export default theme;
