@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 
-const Icon = ({icon, ...props}) => {
+const Icon = ({icon, ...props}: { icon: string }) => {
     const svg = require(`!raw-loader!./icons/${icon}.svg`).default;
+    //@ts-ignore
     return <Wrapper {...props} dangerouslySetInnerHTML={{__html: svg}}/>
 };
 
@@ -19,7 +19,6 @@ const fontSize = ({width, height}) => {
 const Wrapper = styled.span`
   display: inline-block;
   font-size: ${fontSize && fontSize} !important;
-
   width: ${props => props.width && props.height ? props.width : "1em"};
   height: ${props => props.width && props.height ? props.height : "1em"};
   margin: 0.1em;
@@ -29,14 +28,7 @@ const Wrapper = styled.span`
     width: 100%;
     height: 100%;
     fill: currentcolor;
-  
   }
 `;
-
-Icon.propTypes = {
-    icon: PropTypes.string.isRequired,
-    width: PropTypes.number,
-    height: PropTypes.number,
-};
 
 export default Icon;
