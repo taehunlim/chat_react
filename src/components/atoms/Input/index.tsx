@@ -1,16 +1,17 @@
 import React from 'react';
-import PropTypes from "prop-types";
 import styled from "@emotion/styled";
-import css from "@emotion/css";
+import { css } from "@emotion/react";
 
 const Input = ({...props}) => {
     const { type } = props;
+
     if(type === 'textarea') {
         return <StyledTextarea {...props}/>
-    }
+    };
     if(type === 'select') {
         return <StyledSelect {...props}/>
-    }
+    };
+
     return <StyledInput {...props}/>
 };
 
@@ -52,16 +53,5 @@ const styles = props => css`
 const StyledTextarea = styled.textarea`${styles}`;
 const StyledSelect = styled.select`${styles}`;
 const StyledInput = styled.input`${styles}`;
-
-Input.propTypes = {
-    type: PropTypes.string,
-    height: PropTypes.number,
-    invalid: PropTypes.bool,
-};
-
-Input.defaultProps = {
-    type: 'text',
-    height: 46,
-};
 
 export default Input;
