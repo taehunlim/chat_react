@@ -97,12 +97,6 @@ module.exports = (env, options) => {
 			extensions: [".ts", ".tsx", ".js", ".jsx", "scss"],
 		},
 
-		devServer: {
-			contentBase: "./dist",
-			historyApiFallback: true,
-			port: 4000,
-		},
-
 		entry: {
 			main: ['babel-polyfill', "./src/index.tsx"],
 		},

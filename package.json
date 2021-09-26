@@ -5,15 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --open --env DEV=true --hot --progress",
+    "start": "webpack serve --open --env DEV=true --hot --progress --history-api-fallback --port 4000",
     "build": "webpack --mode production --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@emotion/core": "10.0.27",
-    "@emotion/css": "10.0.27",
+    "@emotion/core": "11.0.0",
+    "@emotion/css": "11.1.3",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@loadable/component": "^5.15.0",
@@ -26,9 +26,9 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.3.0",
-    "recoil": "^0.3.1",
+    "recoil": "^0.4.1",
     "socket.io-client": "^4.2.0",
-    "swr": "^0.5.6"
+    "swr": "^1.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
@@ -39,19 +39,20 @@
     "@webpack-cli/serve": "^1.4.0",
     "babel-loader": "^8.2.2",
     "babel-polyfill": "^6.26.0",
-    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^9.0.0",
-    "css-loader": "^5.2.6",
+    "css-loader": "^6.3.0",
     "error-overlay-webpack-plugin": "^1.0.0",
     "file-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^6.3.3",
     "html-webpack-plugin": "^5.3.1",
-    "mini-css-extract-plugin": "^1.6.0",
+    "mini-css-extract-plugin": "^2.3.0",
     "optimize-css-assets-webpack-plugin": "^6.0.0",
     "react-hot-loader": "^4.13.0",
     "sass": "^1.34.0",
-    "sass-loader": "^11.1.1",
-    "style-loader": "^2.0.0",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.3.0",
+    "terser-webpack-plugin": "^5.2.4",
     "ts-loader": "^9.2.2",
     "tslint": "^6.1.3",
     "tslint-react": "^5.0.0",
@@ -60,9 +61,9 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.37.1",
     "webpack-cli": "^4.7.0",
-    "webpack-dev-middleware": "^4.3.0",
-    "webpack-dev-server": "^3.11.2",
-    "webpack-manifest-plugin": "^3.1.1"
+    "webpack-dev-middleware": "^5.2.1",
+    "webpack-dev-server": "^4.3.0",
+    "webpack-manifest-plugin": "^4.0.2"
   },
   "proxy": "http://localhost:5000"
 }
