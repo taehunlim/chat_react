@@ -2,19 +2,26 @@ import React, { useState } from 'react';
 import styled from "@emotion/styled";
 
 import Icon from "../atoms/Icon";
+import Badge from "../atoms/Badge";
+import SearchBar from "../molecules/SearchBar/index";
 
 function Header() {
-    const [isOpenMenu, setIsOpenMenu] = useState(false);
 
-    console.log(typeof require('../../assets/images/bell.png'))
+    const [showSearch, setShowSearch] = useState(false);
     return (
         <StyledHeader>
             <BrandBox>
                 Logo
             </BrandBox>
             <Navigation>
-                <Icon icon="search" />
-                <Icon icon="bell"/>
+                {showSearch && <SearchBar/>}
+                <Icon
+                    icon="search"
+                    onClick={() => setShowSearch(!showSearch)}
+                />
+                <Badge count={3}>
+                    <Icon icon="bell"/>
+                </Badge>
             </Navigation>
         </StyledHeader>
     );

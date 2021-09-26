@@ -6,18 +6,26 @@ import Icon from "../../atoms/Icon";
 
 const SearchBar = ({...props}) => {
 
-    const showClearButton = (e) => {
-        const clearButton = e.target.nextElementSibling;
+    const showClearButton = ({ target }) => {
+        const clearButton = target.nextElementSibling;
         clearButton.style.display = "inline-block";
     };
 
-    const hideClearButton = (e) => {
-        const clearButton = e.target.nextElementSibling;
-        clearButton.style.display = "none";
+    const hideClearButton = ({ target }) => {
+        const inputValue = target.value;
+        const clearButton = target.nextElementSibling;
+        switch (inputValue) {
+            case "":
+                return clearButton.style.display = "none";
+                break;
+            default:
+                break;
+        }
     };
 
-    const clearInput = (e) => {
-        e.target.parentNode.querySelector('input').value = "";
+    const clearInput = ({ target }) => {
+        target.parentNode.querySelector('input').value = "";
+        target.style.display = "none";
     };
 
     return (
