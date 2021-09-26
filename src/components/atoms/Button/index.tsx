@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 
+
 const colorList = "primary" || "secondary";
 const Button = ({type, ...props}) => {
     const { to, href } = props;
 
     if(to) {
-        //@ts-ignore
         return <StyledLink {...props}/>
     }
 
@@ -66,9 +66,7 @@ const styles = props => css`
 const StyledButton = styled.button`${styles}`;
 const Anchor = styled.a`${styles}`;
 const StyledLink = styled(
-    ({
-         disabled, transparent, height, theme, ...props
-    }) => <Link {...props}/>
+    (props) => <Link {...props}/>
 )`${styles}`
 
 export default Button;

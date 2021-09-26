@@ -12,10 +12,11 @@ const Home = () => {
     const history = useHistory();
     const [roomName, setRoomName] = useState("");
 
+    const [search, setSearch] = useState("");
+
     const handleRoomNameChange = (e) => {
         setRoomName(e.target.value);
     };
-
     return (
         <Layout>
             <Card>
@@ -34,7 +35,6 @@ const Home = () => {
                             Welcome
                         </Label>
                         <StyledInput
-                            type="text"
                             placeholder="Room Name"
                             value={roomName}
                             onChange={handleRoomNameChange}

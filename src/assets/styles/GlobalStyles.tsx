@@ -58,6 +58,20 @@ const styles = css`
     list-style: outside none none;
   }
 
+  input::-ms-clear,
+  input::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  input::-webkit-search-decoration,
+  input::-webkit-search-cancel-button,
+  input::-webkit-search-results-button,
+  input::-webkit-search-results-decoration {
+    display: none;
+  }
+  
   input:focus::-webkit-input-placeholder,
   textarea:focus::-webkit-input-placeholder {
     color: transparent !important;

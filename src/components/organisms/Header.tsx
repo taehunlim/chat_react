@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 
 import Icon from "../atoms/Icon";
 import Badge from "../atoms/Badge";
-import SearchBar from "../molecules/SearchBar/index";
+import SearchBar from "../molecules/SearchBar";
 
 function Header() {
 
