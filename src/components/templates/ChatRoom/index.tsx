@@ -1,6 +1,8 @@
 import React from 'react';
+import styled from "@emotion/styled";
 
 import ChatBox from "../../organisms/ChatBox";
+import ChatList from "../../organisms/ChatList";
 
 const ChatRoom = () => {
     const chatData = [
@@ -12,11 +14,15 @@ const ChatRoom = () => {
     ];
 
     return (
-        <div>
+        <Wrapper>
+            <ChatList/>
             <ChatBox data={chatData} />
-        </div>
+        </Wrapper>
     );
 };
 
+const Wrapper = styled.div`
+  display: flex;
+`;
 
 export default ChatRoom;
