@@ -20,9 +20,9 @@ const Home = () => {
     return (
         <Layout>
             <Card>
-                <Card.Headher>
+                <Card.Header>
                     Chat Room List
-                </Card.Headher>
+                </Card.Header>
 
                 <Card.Container>
                     <Column>

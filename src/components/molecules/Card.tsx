@@ -1,25 +1,25 @@
 import React from 'react';
 import styled from "@emotion/styled";
 
-const Card = ({ children }) => {
+const Card = ({ children, ...props }) => {
     return (
-        <CardWrapper>
+        <CardWrapper {...props}>
             {children}
         </CardWrapper>
     );
 };
 
-const Header = ({ children }) => {
+const Header = ({ children, ...props }) => {
     return (
-        <CardHeader>
+        <CardHeader {...props}>
             {children}
         </CardHeader>
     )
 };
 
-const Container = ({ children }) => {
+const Container = ({ children, ...props }) => {
     return (
-        <CardContainer>
+        <CardContainer {...props}>
             {children}
         </CardContainer>
     )
@@ -33,12 +33,12 @@ const CardWrapper = styled.div`
   margin: 0 auto;
   padding: 35px;
   
-  ${ props => props.theme.device.tablet} {
+  ${props => props.theme.device.tablet} {
     width: 400px;
     min-height: 300px;
   }
   
-  ${ props => props.theme.device.mobile } {
+  ${props => props.theme.device.mobile } {
     width: 300px;
     min-height: 200px;
   }
@@ -50,10 +50,11 @@ const CardHeader = styled.div`
 `;
 
 const CardContainer = styled.div`
-    display: flex;
+  display: block;
+  width: 100%;
 `;
 
 Card.Container = Container;
-Card.Headher = Header;
+Card.Header = Header;
 
 export default Card;

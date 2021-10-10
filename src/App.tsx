@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import { SWRConfig } from 'swr';
-/** @jsx jsx */
 import { ThemeProvider } from '@emotion/react';
 import { RecoilRoot } from 'recoil';
 
@@ -10,7 +9,7 @@ import { Store } from './store';
 import GlobalStyles from './assets/styles/GlobalStyles';
 import theme from './assets/styles/theme';
 
-import { Home, ChatRoom } from './pages';
+import { Home, ChatRoom, Template } from './pages';
 
 const App: React.FC = () => {
     const { api, loading } = useAxios();
@@ -31,6 +30,7 @@ const App: React.FC = () => {
                         <ThemeProvider theme={theme}>
                             <GlobalStyles/>
                             <Switch>
+                                <Route path="/template" exact render={props => <Template {...props} />}/>
                                 <Route path="/" exact render={props => <Home {...props} />}/>
                                 <Route path="/:roomId" exact render={props => <ChatRoom {...props} />}/>
                                 <Redirect to="/"/>

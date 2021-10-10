@@ -29,7 +29,7 @@ const SearchBar = ({...props}) => {
     };
 
     return (
-        <Wrapper>
+        <Wrapper {...props}>
             <Input
                 {...props}
                 onFocus={showClearButton}
@@ -43,7 +43,7 @@ const SearchBar = ({...props}) => {
 const Wrapper = styled.div`
   position: relative;
   // ${props => ClearButton} {
-  //  
+  //
   // }
 `;
 
