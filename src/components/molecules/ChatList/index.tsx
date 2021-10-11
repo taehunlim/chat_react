@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled from "@emotion/styled";
 
 import Image from "../../atoms/Image";
@@ -9,34 +9,45 @@ interface ChatListProps extends React.ComponentProps<"li">{
   name: string;
   description: string;
   lastChat: string;
+  isActive?: boolean;
 };
 
-const ChatList = ({ image, name, description, lastChat, ...props }: ChatListProps) => {
+const ChatList = ({ id, isActive, image, name, description, lastChat, ...props }: ChatListProps) => {
+    const location = useLocation();
     return (
         <UserList
             {...props}
-            className=""
+            className={location.hash === `#${id}` && "active"}
         >
-            <StyledLink to="#">
+            <StyledLink to={`#${id}`}>
                 <ListWrapper>
-                    <div className="align-self-center mr-3">
-                        "
-                    </div>
+                    <ActiveIcon className={isActive && "isActive"}/>
                     <ProfileImage>
                         <Image width={32} src={image}/>
                     </ProfileImage>
 
                     <ProfileWrapper>
-                        <h5 className="text-truncate font-size-14 mb-1">이름</h5>
-                        <p className="text-truncate mb-0">프로필 명</p>
+                        <h5>{name}</h5>
+                        <p>{description}</p>
                     </ProfileWrapper>
-                    <div
-                        className="font-size-11">{lastChat} min ago</div>
+                    <div>{lastChat} min ago</div>
                 </ListWrapper>
             </StyledLink>
         </UserList>
     );
 };
+
+const ActiveIcon = styled.div`
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  align-self: center;
+  border-radius: 25px;
+  
+  &.isActive {
+    background-color: green;
+  }
+`;
 
 const ListWrapper = styled.div`
   display: flex;
@@ -45,8 +56,14 @@ const ListWrapper = styled.div`
 `;
 
 const UserList = styled.li`
+  background-color: #f8f8fb;
+  
   ${props => StyledLink} {
     width: 100%;
+  }
+  
+  &.active {
+    background-color: #fff;
   }
 `;
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from "@emotion/styled";
 import { keyframes } from '@emotion/react';
 
@@ -14,52 +15,62 @@ const tada = keyframes`
 `;
 
 const ChatBox = ({data}) => {
+    const location = useLocation();
     return (
         <Wrapper>
-            <Card>
-                <StyledHeader>
-                    RoomName
-                    <div>
-                        <StyledIcon icon="bell"/>
-                        <Icon icon="bell"/>
-                        <Icon icon="bell"/>
-                    </div>
-                </StyledHeader>
+            {data && data.map((chats, i:number) => (
+                `#${chats.room.userId}` === location.hash && (
+                    <Card key={i}>
+                        <StyledHeader>
+                            {chats.room.name}
+                            <div>
+                                <StyledIcon icon="bell"/>
+                                <Icon icon="bell"/>
+                                <Icon icon="bell"/>
+                            </div>
+                        </StyledHeader>
 
-                <Card.Container>
-                    <ChatContent>
-                        {data && data.map((chat) => (
-                            <Container key={chat.id}>
-                                {data[chat.id - 1]?.date !== data[chat.id]?.date && (
-                                    <li>
-                                        <ChatDay>
-                                            <span>{chat.date}</span>
-                                        </ChatDay>
-                                    </li>
-                                )}
-                                <li>
-                                    <ChatWrapper className={chat.sender}>
-                                        <MenuIcon icon="menu-dot" />
-                                        <Chat>
-                                            <SenderName>
-                                                {chat.name}
-                                            </SenderName>
-                                            <p>
-                                                {chat.content}
-                                            </p>
-                                            <ChatTime>
-                                                12:30
-                                            </ChatTime>
-                                        </Chat>
-                                    </ChatWrapper>
-                                </li>
-                            </Container>
-                        ))}
+                        <Card.Container>
+                            <ChatContent>
+                                {chats && chats.content.map((chat) => (
+                                    `#${chat.userId}` === location.hash && (
+                                        <Container key={chat.id}>
+                                            {chats.content[chat.id - 1]?.date !==
+                                            chats.content[chat.id]?.date && (
+                                                <li>
 
-                    </ChatContent>
+                                                    <ChatDay>
+                                                        <span>{chat.date}</span>
+                                                    </ChatDay>
 
-                </Card.Container>
-            </Card>
+                                                </li>
+                                            )}
+                                            <li>
+                                                <ChatWrapper className={chat.sender}>
+                                                    <MenuIcon icon="menu-dot" />
+                                                    <Chat>
+                                                        <SenderName>
+                                                            {chat.name}
+                                                        </SenderName>
+                                                        <p>
+                                                            {chat.content}
+                                                        </p>
+                                                        <ChatTime>
+                                                            12:30
+                                                        </ChatTime>
+                                                    </Chat>
+                                                </ChatWrapper>
+                                            </li>
+                                        </Container>
+                                    )
+                                ))}
+                            </ChatContent>
+
+                        </Card.Container>
+                    </Card>
+                )
+            ))}
+
         </Wrapper>
     );
 };
