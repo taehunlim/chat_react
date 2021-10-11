@@ -42,9 +42,6 @@ const SearchBar = ({...props}) => {
 
 const Wrapper = styled.div`
   position: relative;
-  // ${props => ClearButton} {
-  //
-  // }
 `;
 
 const ClearButton = styled(Icon)`

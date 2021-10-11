@@ -1,7 +1,7 @@
 {
   "name": "admin_template",
   "version": "1.0.0",
-  "description": "",
+  "description": "react-init",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -63,5 +63,13 @@
     "webpack-dev-server": "^4.3.0",
     "webpack-manifest-plugin": "^4.0.2"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:5000",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taehunlim/chat_react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/taehunlim/chat_react/issues"
+  },
+  "homepage": "https://github.com/taehunlim/chat_react#readme"
 }

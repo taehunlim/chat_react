@@ -13,9 +13,16 @@ const ChatRoom = () => {
         { id: 4, date: "tomorrow", sender: "someone", name: "이름", content: "내용"}
     ];
 
+    const ListData = [
+        {name: "jordan", description: "basketball", lastChat: "23 min"},
+        {name: "jackson", description: "dance", lastChat: "1 min"},
+        {name: "andrew", description: "cat", lastChat: "55 min"},
+        {name: "tom", description: "tomato", lastChat: "33 day"},
+    ];
+
     return (
         <Wrapper>
-            <ChatList/>
+            <ChatList data={ListData}/>
             <ChatBox data={chatData} />
         </Wrapper>
     );

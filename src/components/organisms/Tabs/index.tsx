@@ -7,7 +7,7 @@ import useTabs from "../../hooks/useTabs";
 
 interface Props extends React.ComponentProps<'div'>{
     defaultActiveKey: string,
-    onChange: (activeKey) => void;
+    onChange: (activeKey, tabName?: string) => void;
 };
 
 function Tabs({ onChange, defaultActiveKey, children, ...props }: Props) {
@@ -24,7 +24,7 @@ function Tabs({ onChange, defaultActiveKey, children, ...props }: Props) {
                         tabName={tabName}
                         onClick={() => {
                             changeItem(activeKey)
-                            onChange(activeKey)
+                            onChange(activeKey, tabName)
                         }}
                     />
                 )
@@ -38,6 +38,6 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
-Tabs.Tab = Tab;
+Tabs.TabPane = Tab;
 
 export default Tabs;
