@@ -11,8 +11,12 @@ const CopyPlugin = require('copy-webpack-plugin');
 const ErrorOverlayPlugin = require('error-overlay-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
-module.exports = (env, options) => {
-	const mode = options.mode || 'development';
+const PROJECT_ROOT = path.resolve(__dirname);
+const PUBLIC_INDEX = path.resolve(PROJECT_ROOT, 'public', 'index.html');
+const BUILD_PATH = path.resolve(PROJECT_ROOT, 'build')
+
+module.exports = env => {
+	const mode = env.WEBPACK_SERVE ? 'development' : 'production'
 	const DEV = mode === 'development';
 
 	switch (mode) {
@@ -35,7 +39,8 @@ module.exports = (env, options) => {
 		}),
 
 		new HtmlWebPackPlugin({
-			template: './public/index.html',
+			// template: './public/index.html',
+			template: PUBLIC_INDEX,
 			templateParameters: {
 				env: DEV ? '(개발)' : '',
 			},
@@ -85,7 +90,7 @@ module.exports = (env, options) => {
 	}
 
 	return {
-		mode: mode,
+		mode,
 
 		devtool: DEV ? "inline-source-map" : "source-map",
 
@@ -106,8 +111,8 @@ module.exports = (env, options) => {
 
 			chunkFilename: 'js/[name].chunk.js', //dynamic import
 
-			path: path.resolve(__dirname, './dist'),
-
+			// path: path.resolve(__dirname, './dist'),
+			path: BUILD_PATH,
 			publicPath: "/",
 		},
 
@@ -165,7 +170,9 @@ module.exports = (env, options) => {
 				},
 			],
 		},
+
 		plugins,
+
 		optimization: {
 			splitChunks: {
 				name: "vendors",
@@ -195,6 +202,10 @@ module.exports = (env, options) => {
 
 		externals: {
 			axios: "axios"
+		},
+
+		cache: {
+			type: DEV ? 'memory' : 'filesystem',
 		},
 	}
 
