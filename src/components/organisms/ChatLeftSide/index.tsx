@@ -64,8 +64,13 @@ const ScrollContainer = styled.div`
   position: relative;
   overflow: scroll;
   overflow-anchor: none;
-  height: 450px;
+  height: auto;
+  margin-bottom: 50px;
   touch-action: auto;
+
+  ${props => props.theme.device.desktop} {
+    height: 450px;
+  }
 `;
 
 export default ChatLeftSide;
