@@ -15,24 +15,24 @@ const tada = keyframes`
 
 const Header = ({title, ...props}) => {
     return (
-        <Wrapper {...props}>
+        <ChatHeader {...props}>
             {title}
             <div>
                 <StyledIcon icon="bell"/>
                 <Icon icon="bell"/>
                 <Icon icon="bell"/>
             </div>
-        </Wrapper>
+        </ChatHeader>
     )
 };
 
 const Body = ({children, ...props}) => {
     return (
-        <Card.Container {...props}>
+        <ChatContainer {...props}>
             <ChatBody>
                 {children}
             </ChatBody>
-        </Card.Container>
+        </ChatContainer>
     )
 };
 
@@ -69,16 +69,27 @@ const Content = ({sender, name, message, time, ...props}) => {
 
 const Chats = ({children, ...props}) => {
     return (
-        <Card {...props}>
+        <Wrapper {...props}>
             {children}
-        </Card>
+        </Wrapper>
     );
 };
 
-const Wrapper = styled(Card.Header)`
+const Wrapper = styled(Card)`
+  padding: 0;
+`;
+
+const ChatHeader = styled(Card.Header)`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 1.5rem 1rem;
+  margin-bottom: 0;
+`;
+
+const ChatContainer = styled(Card.Container)`
+  overflow: scroll;
+  height: 500px;
 `;
 
 const ChatWrapper = styled.div`
@@ -156,6 +167,7 @@ const MenuIcon = styled(Icon)`
 const ChatBody = styled.ul`
   display: grid;
   width: 100%;
+  padding: 1rem;
 `;
 
 const Container = styled.div`

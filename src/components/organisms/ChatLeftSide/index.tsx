@@ -28,7 +28,7 @@ const ChatLeftSide = ({data}) => {
 
             <div>
                 <TabTitle>{currentTab.tabName}</TabTitle>
-                <ul className="list-unstyled chat-list">
+                <ul>
                     <ScrollContainer>
                         {currentTab.activeKey === "chat" && data.map((chat, i: number) => (
                             <ChatList
@@ -44,82 +44,15 @@ const ChatLeftSide = ({data}) => {
                     </ScrollContainer>
                 </ul>
             </div>
-
-            {/*<TabContent activeTab={activeTab} className="py-4">*/}
-            {/*    <TabPane tabId="2">*/}
-            {/*        <h5 className="font-size-14 mb-3">Group</h5>*/}
-            {/*        <ul className="list-unstyled chat-list">*/}
-            {/*            <PerfectScrollbar style={{height: "410px"}}>*/}
-            {/*                {*/}
-            {/*                    groups.map((group) =>*/}
-            {/*                        <li key={"test" + group.image}>*/}
-            {/*                            <Link to="#" onClick={() => {*/}
-            {/*                                UserChatOpen(group.id, group.name, group.status)*/}
-            {/*                            }}>*/}
-            {/*                                <Media className="align-items-center">*/}
-            {/*                                    <div className="avatar-xs mr-3">*/}
-            {/*                                                                        <span*/}
-            {/*                                                                            className="avatar-title rounded-circle bg-soft-primary text-primary">*/}
-            {/*                                                                            {group.image}*/}
-            {/*                                                                        </span>*/}
-            {/*                                    </div>*/}
-
-            {/*                                    <Media body>*/}
-            {/*                                        <h5 className="font-size-14 mb-0">{group.name}</h5>*/}
-            {/*                                    </Media>*/}
-            {/*                                </Media>*/}
-            {/*                            </Link>*/}
-            {/*                        </li>*/}
-            {/*                    )*/}
-            {/*                }*/}
-            {/*            </PerfectScrollbar>*/}
-            {/*        </ul>*/}
-            {/*    </TabPane>*/}
-
-            {/*    <TabPane tabId="3">*/}
-            {/*        <h5 className="font-size-14 mb-3">Contact</h5>*/}
-
-            {/*        <div>*/}
-            {/*            <PerfectScrollbar style={{height: "410px"}}>*/}
-            {/*                {*/}
-            {/*                    contacts.map((contact) =>*/}
-            {/*                        <div key={"test_" + contact.category}*/}
-            {/*                             className={contact.category === "A" ? "" : "mt-4"}>*/}
-            {/*                            <div className="avatar-xs mb-3">*/}
-            {/*                                                                <span*/}
-            {/*                                                                    className="avatar-title rounded-circle bg-soft-primary text-primary">*/}
-            {/*                                                                    {contact.category}*/}
-            {/*                                                                </span>*/}
-            {/*                            </div>*/}
-
-            {/*                            <ul className="list-unstyled chat-list">*/}
-            {/*                                {*/}
-            {/*                                    contact.child.map((array) =>*/}
-            {/*                                        <li key={"test" + array.id}>*/}
-            {/*                                            <Link to="#" onClick={() => {*/}
-            {/*                                                UserChatOpen(array.id, array.name, array.status)*/}
-            {/*                                            }}>*/}
-            {/*                                                <h5 className="font-size-14 mb-0">{array.name}</h5>*/}
-            {/*                                            </Link>*/}
-            {/*                                        </li>*/}
-            {/*                                    )*/}
-            {/*                                }*/}
-            {/*                            </ul>*/}
-            {/*                        </div>*/}
-            {/*                    )*/}
-            {/*                }*/}
-            {/*            </PerfectScrollbar>*/}
-            {/*        </div>*/}
-
-            {/*    </TabPane>*/}
-            {/*</TabContent>*/}
         </Wrapper>
     );
 };
 
 const Wrapper = styled.div`
-  min-width: 380px;
-  margin-right: 1.5rem;
+  ${props => props.theme.device.desktop} {
+    width: 380px;
+  }
+  width: 100%;
 `;
 
 const TabTitle = styled.h5`

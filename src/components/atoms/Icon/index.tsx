@@ -14,7 +14,7 @@ const Icon = ({icon, ...props}) => {
 const fontSize = (props) => {
     const { width, height } = props;
     if(width && height) {
-        return;
+        return "0px";
     } else {
         const size = width || height;
         return size ? `${size}px` : "22px";

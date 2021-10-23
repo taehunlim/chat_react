@@ -16,6 +16,11 @@ declare module '@emotion/react' {
       mobile: string
     },
 
+    primary: {
+      bg: string,
+      font: string,
+    },
+
     bgColor: {
       lightMode: string,
       darkMode: string

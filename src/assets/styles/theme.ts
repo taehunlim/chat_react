@@ -14,6 +14,11 @@ const device = {
     mobile: `@media (max-width: ${deviceSize.mobile})`
 };
 
+const primary = {
+    font: "#ffffff",
+    bg: "#4e98ed",
+};
+
 const bgColor = {
     lightMode: 'white',
     darkMode: '#232323'
@@ -37,6 +42,7 @@ const color = {
 const theme = {
     deviceSize,
     device,
+    primary,
     bgColor,
     fontColor,
     color
